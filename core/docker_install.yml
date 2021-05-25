@@ -13,6 +13,9 @@
           - curl
           - gnupg
           - lsb-release
+          - python3-pip
+          - python3-setuptools
+          - virtualenv
         update_cache: yes
     
     - name: Add Docker's Official GPG Key
@@ -31,6 +34,11 @@
           - docker-ce
           - docker-ce-cli
           - containerd.io
+    - name: Install docker-compose
+      apt:
+        update_cache: yes
+        pkg:
+          - docker-compose
  
     - name: Check if a reboot is needed on all servers
       register: reboot_required_file
